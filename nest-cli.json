@@ -1,8 +1,41 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/study-tracker-server-v2/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/study-tracker-server-v2/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/study-tracker-server-v2",
+  "projects": {
+    "study-tracker-gateway": {
+      "type": "application",
+      "root": "apps/study-tracker-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/study-tracker-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/study-tracker-gateway/tsconfig.app.json"
+      }
+    },
+    "roadmaps": {
+      "type": "application",
+      "root": "apps/roadmaps",
+      "entryFile": "main",
+      "sourceRoot": "apps/roadmaps/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/roadmaps/tsconfig.app.json"
+      }
+    },
+    "schedules": {
+      "type": "application",
+      "root": "apps/schedules",
+      "entryFile": "main",
+      "sourceRoot": "apps/schedules/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/schedules/tsconfig.app.json"
+      }
+    }
   }
 }
