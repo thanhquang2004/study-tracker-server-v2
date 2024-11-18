@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { RoadmapsService } from './roadmaps.service';
 
 @Controller('roadmaps')
@@ -10,8 +10,13 @@ export class RoadmapsController {
     return this.roadmapService.findAll();
   }
 
-  @Get('test')
-  test(@Body() info: string) {
+  @Post('generateQuestion')
+  async test(@Body() info: string) {
     return this.roadmapService.generateQuestion(info);
+  }
+
+  @Post('generateRoadmap')
+  test2(@Body() info: string) {
+    return this.roadmapService.generateRoadmap(info);
   }
 }
