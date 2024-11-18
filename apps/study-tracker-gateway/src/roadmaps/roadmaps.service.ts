@@ -9,6 +9,7 @@ export class RoadmapsService {
 
   onModuleInit() {
     this.client.subscribeToResponseOf('generateQuestion');
+    this.client.subscribeToResponseOf('generateRoadmap');
   }
 
   findAll() {
@@ -16,7 +17,10 @@ export class RoadmapsService {
   }
 
   generateQuestion(info: string) {
-    // return this.client.send('generateQuestion', info);
     return this.client.send('generateQuestion', info);
+  }
+
+  generateRoadmap(info: string) {
+    return this.client.send('generateRoadmap', info);
   }
 }

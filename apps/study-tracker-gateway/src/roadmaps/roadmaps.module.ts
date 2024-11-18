@@ -11,10 +11,12 @@ import { RoadmapsController } from './roadmaps.controller';
         transport: Transport.KAFKA,
         options: {
           client: {
-            brokers: ['localhost:9092'],
+            brokers: ['localhost:9094'],
           },
           consumer: {
             groupId: 'roadmaps-consumer',
+            sessionTimeout: 30000,
+            allowAutoTopicCreation: true,
           },
         },
       },
